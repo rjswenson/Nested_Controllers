@@ -1,8 +1,8 @@
 HowTo::Application.routes.draw do
 
-  resources :checklists
-
-  resources :manifests
+  resources :manifests do
+    resources :checklists
+  end
 
 end
 
