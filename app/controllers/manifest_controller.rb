@@ -1,2 +1,0 @@
-class ManifestController < ApplicationController
-end

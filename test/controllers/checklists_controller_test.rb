@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ManifestControllerTest < ActionController::TestCase
+class ChecklistsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

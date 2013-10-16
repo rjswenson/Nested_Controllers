@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ChecklistControllerTest < ActionController::TestCase
+class ChecklistTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
