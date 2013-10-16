@@ -1,0 +1,2 @@
+class ManifestController < ApplicationController
+end
