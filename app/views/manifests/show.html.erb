@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <p>
   <b>Title:</b>
   <%= @manifest.title %>
@@ -9,5 +11,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_manifest_path(@manifest) %> |
-<%= link_to 'Back', manifests_path %>
+<%= link_to 'Edit', edit_manifest_checklist_path(@manifest, @checklist) %> |
+<%= link_to 'Back', manifest_checklists_path(@manifest) %>

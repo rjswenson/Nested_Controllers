@@ -1,19 +1,22 @@
 class ChecklistsController < ApplicationController
   class ManifestsController < ApplicationController
+
+  before_filter :load_manifest
+
   def index
-    @checklists = Checklist.all
+    @checklists = @manifest.checklists.all
   end
 
   def new
-    @checklist = Checklist.new
+    @checklist = @manifest.checklists.new
   end
 
   def create
-    @checklist = Checklist.new(checklist_params)
+    @checklist = @manifest.checklists.new(params[:checklist])
 
     if @checklist.save
       flash[:notice] = "Checklist was successfully added."
-      redirect_to :new
+      redirect_to [@manifest, @checklist]
     else
       flash[:alert] = "Checklist could not be saved."
       render :new
@@ -21,18 +24,18 @@ class ChecklistsController < ApplicationController
   end
 
   def show
-    @checklist = Checklist.find(params[:id])
+    @checklist = @manifest.checklists.find(params[:id])
   end
 
   def edit
-    @checklist = Checklist.find(params[:id])
+    @checklist = @manifest.checklists.find(params[:id])
   end
 
   def update
-    @checklist = Checklist.find(params[:id])
+    @checklist = @manifest.checklists.find(params[:id])
     if @checklist.update_attributes(checklist_params)
       flash[:notice] = "Project was successfully updated."
-      redirect_to @checklist
+      redirect_to [@manifest, @checklist]
     else
       flash[:alert] = "Project could not be saved."
       render :edit
@@ -40,15 +43,20 @@ class ChecklistsController < ApplicationController
   end
 
   def destroy
-    Checklist.find(params[:id]).destroy
+    @checklist = @manifest.checklists.find(params[:id]).destroy
+    @checklist.destroy
     redirect_to checklists_path
   end
 
   private
 
-  def Checklist_params
-    params[:checklist].permit(:step)
-  end
-end
+    def checklist_params
+      params[:checklist].permit(:step, :manifest_id)
+    end
 
+    def load_manifest
+      @manifest = Manifest.find(params[:manifest_id])
+      @manifests = Manifest.all
+    end
+  end
 end

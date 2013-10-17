@@ -1,10 +1,21 @@
 <h1> List of Steps </h1>
 <h3> ================ </h3>
 
-<div class="list-group">
-  <% @checklists.each do |chk| %>
-    <li class="list-group-item">
-      <%= link_to "#{chk.step}", checklist_path(chk.id) %> -->  <%= link_to "Delete?", checklist_path(chk.id), method: :delete %><br/>
-    </li>
-  <% end %>
-</div>
+<ul class="list-group">
+<% @checklists.each do |chk| %>
+  <li class="list-group-item">
+    <tr>
+      <td><%= chk.title %></td>
+      <td><%= chk.description %></td>
+      <td><%= chk.manifest_id %></td>
+      <td><%= link_to 'Show', manifest_checklist_path(@manifest, @checklist) %></td>
+      <td><%= link_to 'Edit', edit_manifest_checklist_path(@manifest, @checklist) %></td>
+      <td><%= link_to 'Destroy', [@manifest, @checklist], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </li>
+<% end %>
+</ul>
+
+<br />
+
+<%= link_to 'Add an Item', new_manifest_checklist(@manifest) %>

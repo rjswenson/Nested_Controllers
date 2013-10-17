@@ -1,13 +1,6 @@
 <h1> Build up your list, step by step </h1>
 
+<%= render 'form' %>
 
-<%= form_for(@checklist) do |f| %>
-  <div class="field">
-
-    <%= f.label :step %><br />
-    <%= f.text_area :step %>
-
-    <%= f.submit "Add", class: "btn btn-large btn-primary" %>
-  </div>
-<% end %>
+<%= link_to 'Back', manifest_checklists_path(@manifest) %>
 

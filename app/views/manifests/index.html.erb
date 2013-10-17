@@ -1,14 +1,19 @@
 <h1> Grand Manifest Lists </h1>
 <h3> ============================ </h3>
 
-<div class = "center list-group">
-
-  <% @manifests.each do |mfst| %>
-    <li class="list-group-item">
-      <%= link_to "#{mfst.title}", manifest_path(mfst.id) %> -->  <%= link_to "Delete!", manifest_path(mfst.id), method: :delete %><br/>
-    </li>
-  <% end %>
-</div>
+<ol class = "center list-group">
+ <% @manifests.each do |mfst| %>
+  <li class="list-group-item">
+    <tr>
+      <td><%= mfst.title %></td>
+      <td><%= mfst.body %></td>
+      <td><%= link_to 'Show', mfst %></td>
+      <td><%= link_to 'Edit', edit_manifest_path(mfst) %></td>
+      <td><%= link_to 'Destroy', mfst, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </li>
+ <% end %>
+</ol>
 
 <br/><br/><br/>
 

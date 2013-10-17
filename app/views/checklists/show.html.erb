@@ -1,13 +1,17 @@
 <h1> Just another.. step in the Wall </h1>
 <h3> Your step says:  </h1>
 
-<br/><br/>
+<p id="notice"><%= notice %></p>
 
-<h2>
-  <%= link_to "#{@checklist.step}", checklist_path %>
-</h2>
+<p>
+  <b>Step:</b>
+  <%= @checklist.step %>
+</p>
 
-<br/>
+  <b>List:</b>
+  <%= @checklist.list_id %>
+</p>
 
-<%= link_to 'Edit', edit_checklist_path(@checklist) %> |
-<%= link_to 'Back', checklists_path %>
+
+<%= link_to 'Edit', edit_manifest_checklist_path(@manifest, @checklist) %> |
+<%= link_to 'Back', manifest_checklists_path(@checklist) %>
