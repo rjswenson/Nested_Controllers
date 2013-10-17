@@ -1,0 +1,10 @@
+<h1> List of Steps </h1>
+<h3> ================ </h3>
+
+<div class="list-group">
+  <% @checklists.each do |chk| %>
+    <li class="list-group-item">
+      <%= link_to "#{chk.step}", checklist_path(chk.id) %> -->  <%= link_to "Delete?", checklist_path(chk.id), method: :delete %><br/>
+    </li>
+  <% end %>
+</div>

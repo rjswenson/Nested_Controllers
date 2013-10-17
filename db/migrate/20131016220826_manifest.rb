@@ -1,8 +1,9 @@
-class CreateManifests < ActiveRecord::Migration
+class Manifest < ActiveRecord::Migration
   def change
     create_table :manifests do |t|
       t.string :title
-      t.text   :description
+      t.text :body
+
       t.timestamps
     end
   end

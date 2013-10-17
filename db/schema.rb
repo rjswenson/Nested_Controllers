@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131016214548) do
+ActiveRecord::Schema.define(version: 20131016233701) do
 
   create_table "checklists", force: true do |t|
-    t.text     "steps"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "manifest_id"
+    t.text     "step"
   end
 
   create_table "manifests", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "title"
     t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

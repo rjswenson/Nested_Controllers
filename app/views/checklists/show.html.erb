@@ -1,0 +1,13 @@
+<h1> Just another.. step in the Wall </h1>
+<h3> Your step says:  </h1>
+
+<br/><br/>
+
+<h2>
+  <%= link_to "#{@checklist.step}", checklist_path %>
+</h2>
+
+<br/>
+
+<%= link_to 'Edit', edit_checklist_path(@checklist) %> |
+<%= link_to 'Back', checklists_path %>
