@@ -12,4 +12,6 @@
 
 
 <%= link_to 'Edit', edit_manifest_checklist_path(@manifest, @checklist) %> |
-<%= link_to 'Back', manifest_checklists_path(@manifest) %>
+<%= link_to 'Back', manifests_path %>
+
+<%= link_to 'Add steps!', new_manifest_checklist_path(@manifest) %>

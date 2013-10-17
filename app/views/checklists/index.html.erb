@@ -1,21 +1,22 @@
 <h1> List of Steps </h1>
 <h3> ================ </h3>
 
-<ul class="list-group">
-<% @checklists.each do |chk| %>
-  <li class="list-group-item">
-    <tr>
-      <td><%= chk.title %></td>
-      <td><%= chk.description %></td>
-      <td><%= chk.manifest_id %></td>
-      <td><%= link_to 'Show', manifest_checklist_path(@manifest, @checklist) %></td>
-      <td><%= link_to 'Edit', edit_manifest_checklist_path(@manifest, @checklist) %></td>
-      <td><%= link_to 'Destroy', [@manifest, @checklist], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  </li>
+<ol class="list-group">
+<% if @checklists.present? %>
+  <% @checklists.each do |chk| %>
+    <li class="list-group-item">
+      <tr>
+        <td><%= chk.step %></td>
+        <td><%= link_to 'Show', manifest_checklist_path(@manifest, @checklist) %></td>
+        <td><%= link_to 'Edit', edit_manifest_checklist_path(@manifest, @checklist) %></td>
+        <td><%= link_to 'Destroy', [@manifest, @checklist], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    </li>
+  <% end %>
 <% end %>
-</ul>
+</ol>
 
 <br />
 
-<%= link_to 'Add an Item', new_manifest_checklist(@manifest) %>
+<%= link_to 'Add an Item', new_manifest_checklist_path(@manifest) %>
+<%= link_to 'Back to the Manifests', manifests_path %>
